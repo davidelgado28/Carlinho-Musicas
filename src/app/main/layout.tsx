@@ -11,11 +11,7 @@ export default function MainLayout({
   return (
     <AudioProvider>
       <div className="flex flex-col h-screen bg-[#121212] text-white overflow-hidden">
-        
-        {/* Container Superior: Sidebar + Main Content */}
         <div className="flex flex-1 overflow-hidden">
-          
-          {/* Sidebar Desktop: Oculta em telas pequenas */}
           <aside className="hidden md:flex flex-col w-64 bg-black p-4 gap-6">
             <div className="text-[#1DB954] font-bold text-2xl tracking-tighter">
               Carlinho Music
@@ -25,13 +21,10 @@ export default function MainLayout({
               <a href="/" className="hover:text-white transition">Início</a>
               <a href="/search" className="hover:text-white transition">Buscar</a>
             </nav>
-
-            {/* Seção de Playlists (CRUD Read) */}
             <div className="mt-4 flex-1 overflow-y-auto">
               <p className="text-xs uppercase tracking-widest text-gray-400 mb-4">
                 Suas Playlists
               </p>
-              {/* O componente PlaylistList buscaria as playlists do usuário */}
               <ul className="space-y-3 text-sm text-gray-400">
                 <li className="hover:text-white cursor-pointer">Eletrônica Fina</li>
                 <li className="hover:text-white cursor-pointer">Treino Monstro</li>
@@ -39,23 +32,16 @@ export default function MainLayout({
               </ul>
             </div>
           </aside>
-
-          {/* Main Content: Rolagem independente para listas de músicas */}
           <main className="flex-1 overflow-y-auto bg-gradient-to-b from-[#181818] to-[#121212] pb-24 md:pb-0 relative">
             <div className="p-6">
               {children}
             </div>
           </main>
         </div>
-
-        {/* Bottom Navigation (Apenas Mobile) */}
         <BottomNav className="md:hidden fixed bottom-[72px] w-full bg-black/90 backdrop-blur-md z-40" />
-
-        {/* Player Bar Fixa no Rodapé */}
         <div className="fixed bottom-0 w-full h-[72px] md:h-24 bg-[#181818] border-t border-[#282828] z-50">
           <PlayerBar />
         </div>
-
       </div>
     </AudioProvider>
   );
